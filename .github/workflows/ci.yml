@@ -24,17 +24,17 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e care/care_connect
+          pip install -e care_connect
           pip install pytest
 
       - name: Lint Python (flake8)
         run: |
           pip install flake8
-          flake8 care/care_connect/care_connect
+          flake8 care_connect/care_connect
 
       - name: Run Python tests (pytest)
         run: |
-          pytest -q care/care_connect/care_connect/tests
+          pytest -q care_connect/care_connect/tests
 
       - name: Set up Node
         uses: actions/setup-node@v4
