@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/manifest.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/facilityhomeactions.tsx","./src/components/page.tsx","./src/components/ui/button.tsx","./src/hooks/usecontainerref.tsx","./src/lib/utils.ts","./src/pages/consultationspage.tsx","./src/pages/examplepage.tsx","./src/utils/api.ts"],"version":"5.8.3"}
