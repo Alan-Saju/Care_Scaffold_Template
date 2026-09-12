@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, '**' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-and-frontend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.13]
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e care_connect
+          pip install pytest
+
+      - name: Lint Python (flake8)
+        run: |
+          pip install flake8
+          flake8 care_connect/care_connect
+
+      - name: Run Python tests (pytest)
+        run: |
+          pytest -q care_connect/care_connect/tests
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: care_connect_fe/package-lock.json
+
+      - name: Build frontend remote (care_connect_fe)
+        working-directory: care_connect_fe
+        run: |
+          npm ci --silent
+          npm run build --silent
+
+      - name: Upload frontend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: care_connect_fe-dist
+          path: care_connect_fe/dist

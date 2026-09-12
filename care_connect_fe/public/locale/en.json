@@ -1,0 +1,19 @@
+{
+  "connect__page_title": "Care Connect consultations",
+  "connect__page_description": "Schedule and track staff consultations for this facility.",
+  "connect__action_label": "Open consultations",
+  "connect__new_consultation": "New consultation",
+  "connect__title_placeholder": "Consultation title",
+  "connect__create_consultation": "Create consultation",
+  "connect__saving": "Saving…",
+  "connect__facility_required": "Open this page from a facility to create a consultation.",
+  "connect__consultations": "Consultations",
+  "connect__loading": "Loading…",
+  "connect__load_error": "Unable to load consultations.",
+  "connect__empty": "No consultations yet.",
+  "connect__status_draft": "Draft",
+  "connect__status_scheduled": "Scheduled",
+  "connect__status_in_progress": "In progress",
+  "connect__status_completed": "Completed",
+  "connect__status_cancelled": "Cancelled"
+}

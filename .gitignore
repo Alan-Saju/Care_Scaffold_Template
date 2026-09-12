@@ -7,3 +7,6 @@ __pycache__/
 .env
 .env.local
 .agent/
+# Local CARE reference checkouts
+/care/
+/care_fe/
